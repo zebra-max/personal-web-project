@@ -6,7 +6,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Hakkımda</title>
+    <title>Öz Geçmiş</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -15,10 +15,105 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
 
-   <p>CV</p>
-   <h1>çalışıyor</h1>
+
+
+<body>
+  <div class="container-fluid"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav custom-align">
+        <a class="nav-link active" href="index.html">Hakkında <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cv.html">Öz Geçmiş</a>
+        <a class="nav-link" href="sehrim.html">Şehrim</a>
+        <a class="nav-link" href="miras.html">Takım</a>
+        <a class="nav-link" href="ilgi.html">İlgi Alanlarım</a>
+        <a class="nav-link" href="login.html">Login</a>
+        <a class="nav-link" href="iletisim.html">İletişim</a>
+        <a class="nav-link" href="sonucu.html">Geçici Form</a>
+
+      </div>
+    </div>
+  </nav>
+  </div>
+
+<!-- CV İÇERİĞİ -->
+<div class="main-row">
+
+  <!-- SOL ALAN (Eğitim & Skiller) -->
+  <main class="text-area">
+    <section>
+      <h2>Eğitim</h2>
+      <article>
+        <h3>Bilgisayar Mühendisliği</h3>
+        <p>Sakarya Üniversitesi – 2024 </p>
+      </article>
+      <article>
+        <h3>Fen ve Sosyal Bilimler Proje Lisesi</h3>
+        <p>Şehit Yılmaz Ercan Anadolu İmam Hatip Lisesi  2020 - 2024</p>
+      </article>
+    </section>
+
+    <section style="margin-top: 30px;">
+      <h2>Beceriler</h2>
+      <div>
+        <p>Python</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 60%;">60%</div></div>
+
+        <p>C++</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 70%;">70%</div></div>
+
+        <p>C#</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 50%;">50%</div></div>
+
+        
+        <p>HTML / CSS</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 40%;">40%</div></div>
+
+        <p>JavaScript</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 30%;">30%</div></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SAĞ ALAN (Foto, İsim, İletişim, Diller) -->
+  <aside style="text-align: center;">
+    <img src="img/papatya.jpg" alt="Profil Fotoğrafı" style="width: 250px; height: 250px; border-radius: 12px; object-fit: cover; border: 3px solid #4A5C6A;"/>
+
+    <header>
+      <h1 style="margin-top: 20px;">Fatma Zehra Ak</h1>
+      <p class="unvan">Bilgisayar Mühendisliği Öğrencisi</p>
+    </header>
+
+    <section style="margin-top: 20px;">
+      <h3>İletişim</h3>
+      <p>📧 fatmazehraak@gmail.com<br>📞 +90 555 555 55 55<br>📍 Sakarya, Türkiye</p>
+    </section>
+
+    <section style="margin-top: 20px;">
+      <h3>Diller</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li>Türkçe – Ana Dil</li>
+        <li>İngilizce – B2</li>
+        <li>Korece – A2</li>
+      </ul>
+    </section>
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer style="text-align: center; padding: 20px; color: #9BA8AB;">
+  &copy; 2025 Fatma Zehra Ak - Sakarya 
+</footer>
+
+</body>
+</html>
+
 
    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
