@@ -37,21 +37,24 @@ h1{
     line-height: 1.15em;
 
 }
-.container {
-    height: 100vh; /* Viewport yüksekliği kadar alan kaplar */
-    display: flex; /* Flexbox kullanarak */
-    align-items: center; /* Dikeyde ortalar */
+.centered-container {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
+
 .row {
     width: 100%; /* Tüm genişliği kaplar */
-    height: 65%;
+     margin-top: 0;
+
 }
 .container {
     padding-top: 20px; /* Üst padding'i azaltın */
-    padding-bottom: 20px; /* Alt padding'i azaltın */
+    padding-bottom: 5px; /* Alt padding'i azaltın */
     height: auto; /* Otomatik yükseklik */
     min-height: 100vh; /* Minimum viewport yüksekliği */
 }
+
 /* İkinci row için özel stil */
 .row.align-items-start {
     margin-top: 0; /* Üst boşluğu kaldırın */
