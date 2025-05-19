@@ -6,7 +6,7 @@
  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Hakkımda</title>
+    <title>İlgi Alanlarım</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -17,7 +17,98 @@
 
 <body>
 
-    <p>ilgi alanları</p>
+    <div class="container-fluid"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav custom-align">
+        <a class="nav-link active" href="index.html">Hakkında <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cv.html">Öz Geçmiş</a>
+        <a class="nav-link" href="sehrim.html">Şehrim</a>
+        <a class="nav-link" href="miras.html">Miras</a>
+        <a class="nav-link" href="ilgi.html">İlgi Alanlarım</a>
+        <a class="nav-link" href="login.html">Login</a>
+        <a class="nav-link" href="iletisim.html">İletişim</a>
+        <a class="nav-link" href="sonucu.html">Geçici Form</a>
+
+      </div>
+    </div>
+  </nav>
+  </div>
+
+ <section id="ilgi-alanlarim">
+  <div class="baslik-secim">
+    <h2>📚Bu Ay Şans Vermen Gereken Kitaplar</h2>
+    <select id="konuSecimi" aria-label="Konu seçimi">
+      <option value="fantasy">Fantastik</option>
+      <option value="science_fiction">Bilim Kurgu</option>
+      <option value="philosophy">Felsefe</option>
+      <option value="history">Tarih</option>
+      <option value="psychology">Psikoloji</option>
+      <option value="romance">Romantik</option>
+    </select>
+  </div>
+  <div id="kitaplar" class="kitap-container"></div>
+</section>
+  <script>
+    const kitapAdet = 5;
+
+    const kitaplarDiv = document.getElementById("kitaplar");
+    const konuSelect = document.getElementById("konuSecimi");
+
+    // Kitapları çek ve göster
+    function kitaplariGetir(konu) {
+      kitaplarDiv.innerHTML = "<p>Yükleniyor...</p>";
+
+      fetch(`https://openlibrary.org/subjects/${konu}.json?limit=50`)
+        .then(res => res.json())
+        .then(data => {
+          kitaplarDiv.innerHTML = ""; // önceki içeriği temizle
+          const kitaplar = data.works;
+          if (!kitaplar || kitaplar.length === 0) {
+            kitaplarDiv.innerHTML = "<p>Bu konuda kitap bulunamadı.</p>";
+            return;
+          }
+          // Listeyi karıştır ve ilk 6 kitabı seç
+          const rastgeleKitaplar = kitaplar.sort(() => 0.5 - Math.random()).slice(0, kitapAdet);
+
+          rastgeleKitaplar.forEach(kitap => {
+            const kart = document.createElement("div");
+            kart.className = "kitap-karti";
+            kart.innerHTML = `
+              <img src="https://covers.openlibrary.org/b/id/${kitap.cover_id}-M.jpg" alt="Kapak" onerror="this.src='https://via.placeholder.com/150x220?text=Kapak+Yok'">
+              <h3>${kitap.title}</h3>
+              <p>Yazar: ${kitap.authors.map(a => a.name).join(", ")}</p>
+            `;
+            kitaplarDiv.appendChild(kart);
+          });
+        })
+        .catch(err => {
+          kitaplarDiv.innerHTML = "<p>Kitaplar yüklenemedi. Lütfen daha sonra tekrar deneyin.</p>";
+          console.error("Veri çekme hatası:", err);
+        });
+    }
+
+    // Sayfa yüklendiğinde ilk konuyu getir (dropdown’un ilk seçeneği)
+    kitaplariGetir(konuSelect.value);
+
+    // Kullanıcı konu seçtiğinde çağrılır
+    konuSelect.addEventListener("change", () => {
+      kitaplariGetir(konuSelect.value);
+    });
+  </script>
+
+
+
+
+ 
+<footer style="text-align: center; padding: 20px; color: #9BA8AB;">
+  &copy; 2025 Fatma Zehra Ak - Sakarya 
+</footer>
 
    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
