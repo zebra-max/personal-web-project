@@ -17,9 +17,59 @@
 </head>
 
 <body>
+    <div class="container-fluid"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav custom-align">
+        <a class="nav-link active" href="index.html">Hakkında <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cv.html">Öz Geçmiş</a>
+        <a class="nav-link" href="sehrim.html">Şehrim</a>
+        <a class="nav-link" href="miras.html">Miras</a>
+        <a class="nav-link" href="ilgi.html">İlgi Alanlarım</a>
+        <a class="nav-link" href="login.html">Login</a>
+        <a class="nav-link" href="iletisim.html">İletişim</a>
+        <a class="nav-link" href="sonucu.html">Geçici Form</a>
 
-    <p>login</p>
+      </div>
+    </div>
+  </nav>
+  </div>
 
+
+<div class="container mt-5">
+   
+
+  <form action="login.php" method="POST" onsubmit="return validateForm();">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="b1812100001@sakarya.edu.tr">
+      <small id="emailHelp" class="form-text text-muted">Mail adresiniz gizli tutulacaktır.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="b1812100001">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Beni hatırla</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+  </form>
+
+
+</div>
+
+
+    <footer style="text-align: center; padding: 20px; color: #9BA8AB;">
+  &copy; 2025 Fatma Zehra Ak - Sakarya 
+</footer>
+
+<canvas id="bg-canvas"></canvas>
    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
