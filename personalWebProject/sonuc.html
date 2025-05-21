@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>İletişim Sonuç</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/sonuc.css">
+</head>
+<body>
+  <div id="app" class="sonuc-container container mt-5">
+    <h2 class="text-center mb-4">Gönderilen İletişim Bilgileri</h2>
+
+    <div class="card p-4">
+      <p><strong>Ad Soyad:</strong> {{ form.adsoyad }}</p>
+      <p><strong>E-posta:</strong> {{ form.email }}</p>
+      <p><strong>Telefon:</strong> {{ form.telefon }}</p>
+      <p><strong>Cinsiyet:</strong> {{ form.cinsiyet }}</p>
+      <p><strong>Şehir:</strong> {{ form.sehir }}</p>
+      <p><strong>Mesaj:</strong> {{ form.mesaj }}</p>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="iletisim.html" class="btn btn-secondary">Geri Dön</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        form: {
+          adsoyad: '',
+          email: '',
+          telefon: '',
+          cinsiyet: '',
+          sehir: '',
+          mesaj: ''
+        }
+      },
+      mounted() {
+        const savedData = localStorage.getItem("iletisimFormu");
+        if (savedData) {
+          this.form = JSON.parse(savedData);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

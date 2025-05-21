@@ -449,3 +449,96 @@ aside img:hover {
   border: 1px solid #ccc;
 }
 
+
+
+.login-container-custom {
+      margin-top: 50px;
+      max-width: 400px;
+      background-color: #11212D;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #4A5C6A;
+    }
+
+    .login-form-control {
+      background-color: #253745;
+      color: #CCD0CF;
+      border: 1px solid #4A5C6A;
+    }
+
+    .login-submit-btn {
+      background-color: #4A5C6A;
+      border: none;
+    }
+
+    .login-error-message {
+      color: red;
+      margin-top: 10px;
+    }
+
+    .login-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      color: #9BA8AB;
+    }
+
+    .success-box {
+    background-color: #11212D;
+    padding: 30px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 0 10px #4A5C6A;
+}
+
+.success-box span {
+    color: #9BA8AB;
+}
+.iletisim-container {
+  background-color: #11212D;
+  padding: 30px;
+  border-radius: 12px;
+  color: #CCD0CF;
+}
+
+.iletisim-container h2 {
+  color: #9BA8AB;
+}
+
+.form-control, .form-check-label, .form-check-input, select, textarea {
+  background-color: #253745;
+  color: #fff;
+  border: none;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
+.alert-danger {
+  background-color: #4A5C6A;
+  border: none;
+}
+.sonuc-container {
+  background-color: #11212D;
+  padding: 30px;
+  border-radius: 12px;
+  color: #CCD0CF;
+}
+
+.sonuc-container h2 {
+  color: #9BA8AB;
+}
+
+.card {
+  background-color: #253745;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.btn {
+  border-radius: 20px;
+}

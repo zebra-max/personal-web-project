@@ -1,41 +1,107 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
-    <meta charset="UTF-8">
-   
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Hakkımda</title>
+  <meta charset="UTF-8">
+  <title>İletişim</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
-    <link rel="stylesheet" href="css/style.css">
-</head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  </head>
 <body>
+  <div id="app" class="iletisim-container container mt-5">
+    <h2 class="text-center mb-4">İletişim Formu</h2>
 
-   <p>iletişim</p>
+    <form @submit.prevent="submitForm">
+      <!-- Ad Soyad -->
+      <div class="form-group">
+        <label for="adsoyad">Ad Soyad</label>
+        <input type="text" class="form-control" id="adsoyad" v-model="form.adsoyad">
+      </div>
 
-   
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+      <!-- E-posta -->
+      <div class="form-group">
+        <label for="email">E-posta</label>
+        <input type="text" class="form-control" id="email" v-model="form.email">
+      </div>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
+      <!-- Telefon -->
+      <div class="form-group">
+        <label for="telefon">Telefon</label>
+        <input type="text" class="form-control" id="telefon" v-model="form.telefon">
+      </div>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
-        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
-        crossorigin="anonymous"></script>
+      <!-- Cinsiyet -->
+      <div class="form-group">
+        <label>Cinsiyet</label><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="Erkek" v-model="form.cinsiyet">
+          <label class="form-check-label">Erkek</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" value="Kadın" v-model="form.cinsiyet">
+          <label class="form-check-label">Kadın</label>
+        </div>
+      </div>
 
-    
-    <script src="js/validation.js"></script>
+      <!-- Şehir Seçimi -->
+      <div class="form-group">
+        <label for="sehir">Şehir</label>
+        <select class="form-control" id="sehir" v-model="form.sehir">
+          <option disabled value="">Seçiniz</option>
+          <option>Bursa</option>
+          <option>İstanbul</option>
+          <option>Ankara</option>
+        </select>
+      </div>
+
+      <!-- Mesaj -->
+      <div class="form-group">
+        <label for="mesaj">Mesajınız</label>
+        <textarea class="form-control" id="mesaj" rows="3" v-model="form.mesaj"></textarea>
+      </div>
+
+      <!-- Düğmeler -->
+      <div class="form-group text-center">
+        <button type="button" class="btn btn-info mr-2" @click="validateSimple">Temel Doğrula</button>
+        <button type="button" class="btn btn-warning mr-2" @click="validateAll">Tüm Doğrulama</button>
+        <button type="reset" class="btn btn-secondary mr-2" @click="resetForm">Temizle</button>
+        <button type="submit" class="btn btn-success">Gönder</button>
+      </div>
+    </form>
+
+    <!-- Uyarı mesajı -->
+    <div class="alert alert-danger" v-if="errorMessage">{{ errorMessage }}</div>
+  </div>
+
+  <footer style="text-align: center; padding: 20px; color: #9BA8AB;">
+  &copy; 2025 Fatma Zehra Ak - Sakarya 
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="js/iletisim.js"></script>
+  <canvas id="bg-canvas"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+    crossorigin="anonymous"></script>
+
+
+  <script src="js/canva.js"></script>
 </body>
-
 </html>

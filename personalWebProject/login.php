@@ -1,40 +1,41 @@
 <?php
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
+    $email = trim($_POST['email'] ?? '');
+    $password = trim($_POST['password'] ?? '');
 
-    // Boş alan kontrolü
     if (empty($email) || empty($password)) {
         header("Location: login.html");
-        exit();
+        exit;
     }
 
-    // E-posta geçerliliği ve domain kontrolü
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || substr($email, -strlen("@sakarya.edu.tr")) !== "@sakarya.edu.tr") {
+    if (!preg_match('/^(b\d{10})@sakarya\.edu\.tr$/', $email, $matches)) {
         header("Location: login.html");
-        exit();
+        exit;
     }
 
-    // E-posta'dan kullanıcı adı (b18...) kısmını al
-    $username = explode('@', $email)[0];
-    $expectedPassword = $username; // Şifre, domain'siz hali
+    $user_id = $matches[1];
 
-    if ($password === $expectedPassword) {
-        echo "<h2 style='text-align:center;'>Hoşgeldiniz $username</h2>";
+    if ($password === $user_id) {
+        echo "<!DOCTYPE html>
+        <html lang='tr'>
+        <head>
+            <meta charset='UTF-8'>
+            <title>Giriş Başarılı</title>
+            <link rel='stylesheet' href='css/login-success.css'>
+        </head>
+        <body>
+            <div class='success-box'>
+                <h2>Hoşgeldiniz <span>$user_id</span></h2>
+                <p>Giriş işleminiz başarıyla gerçekleşti.</p>
+            </div>
+        </body>
+        </html>";
     } else {
         header("Location: login.html");
-        exit();
+        exit;
     }
-} //else {
-   // header("Location: login.html");
-    //exit();
-//}
-
+} else {
+    header("Location: login.html");
+    exit;
+}
 ?>
