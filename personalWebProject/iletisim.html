@@ -3,88 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <title>İletişim</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  </head>
+</head>
 <body>
-  <div id="app" class="iletisim-container container mt-5">
-    <h2 class="text-center mb-4">İletişim Formu</h2>
+  <div class="container-fluid"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav custom-align">
+        <a class="nav-link active" href="index.html">Hakkında <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cv.html">Öz Geçmiş</a>
+        <a class="nav-link" href="sehrim.html">Şehrim</a>
+        <a class="nav-link" href="miras.html">Miras</a>
+        <a class="nav-link" href="ilgi.html">İlgi Alanlarım</a>
+        <a class="nav-link" href="login.html">Login</a>
+        <a class="nav-link" href="iletisim.html">İletişim</a>
+        <a class="nav-link" href="sonuc.html">Sonuç</a>
 
-    <form @submit.prevent="submitForm">
-      <!-- Ad Soyad -->
-      <div class="form-group">
-        <label for="adsoyad">Ad Soyad</label>
-        <input type="text" class="form-control" id="adsoyad" v-model="form.adsoyad">
       </div>
-
-      <!-- E-posta -->
-      <div class="form-group">
-        <label for="email">E-posta</label>
-        <input type="text" class="form-control" id="email" v-model="form.email">
-      </div>
-
-      <!-- Telefon -->
-      <div class="form-group">
-        <label for="telefon">Telefon</label>
-        <input type="text" class="form-control" id="telefon" v-model="form.telefon">
-      </div>
-
-      <!-- Cinsiyet -->
-      <div class="form-group">
-        <label>Cinsiyet</label><br>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" value="Erkek" v-model="form.cinsiyet">
-          <label class="form-check-label">Erkek</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" value="Kadın" v-model="form.cinsiyet">
-          <label class="form-check-label">Kadın</label>
-        </div>
-      </div>
-
-      <!-- Şehir Seçimi -->
-      <div class="form-group">
-        <label for="sehir">Şehir</label>
-        <select class="form-control" id="sehir" v-model="form.sehir">
-          <option disabled value="">Seçiniz</option>
-          <option>Bursa</option>
-          <option>İstanbul</option>
-          <option>Ankara</option>
-        </select>
-      </div>
-
-      <!-- Mesaj -->
-      <div class="form-group">
-        <label for="mesaj">Mesajınız</label>
-        <textarea class="form-control" id="mesaj" rows="3" v-model="form.mesaj"></textarea>
-      </div>
-
-      <!-- Düğmeler -->
-      <div class="form-group text-center">
-        <button type="button" class="btn btn-info mr-2" @click="validateSimple">Temel Doğrula</button>
-        <button type="button" class="btn btn-warning mr-2" @click="validateAll">Tüm Doğrulama</button>
-        <button type="reset" class="btn btn-secondary mr-2" @click="resetForm">Temizle</button>
-        <button type="submit" class="btn btn-success">Gönder</button>
-      </div>
-    </form>
-
-    <!-- Uyarı mesajı -->
-    <div class="alert alert-danger" v-if="errorMessage">{{ errorMessage }}</div>
+    </div>
+  </nav>
   </div>
 
-  <footer style="text-align: center; padding: 20px; color: #9BA8AB;">
-  &copy; 2025 Fatma Zehra Ak - Sakarya 
-</footer>
+  <div id="app">
+    <div class="container login-container-custom">
+      <h1>İletişim Formu</h1>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  <script src="js/iletisim.js"></script>
+    <form @submit.prevent="submitForm">
+      <label>Ad Soyad: <input type="text" v-model="form.adsoyad"></label>
+      <span class="error" v-if="errors.adsoyad">{{ errors.adsoyad }}</span><br>
+      
+      <label>Email: <input type="text" v-model="form.email"></label>
+      <span class="error" v-if="errors.email">{{ errors.email }}</span><br>
+      
+      <label>Telefon: <input type="text" v-model="form.telefon"></label>
+      <span class="error" v-if="errors.telefon">{{ errors.telefon }}</span><br>
+      
+      <label>Cinsiyet:</label>
+      <span class="error" v-if="errors.cinsiyet">{{ errors.cinsiyet }}</span><br>
+      <label><input type="radio" value="Erkek" v-model="form.cinsiyet"> Erkek</label>
+      <label><input type="radio" value="Kadın" v-model="form.cinsiyet"> Kadın</label><br>
+
+      <label>Şehir:
+        <select v-model="form.sehir">
+          <option disabled value="">Seçiniz</option>
+          <option>İstanbul</option>
+          <option>Ankara</option>
+          <option>İzmir</option>
+          <option>Bursa</option>
+        </select>
+      </label>
+      <span class="error" v-if="errors.sehir">{{ errors.sehir }}</span><br>
+
+      <label>Mesaj:<br>
+        <textarea v-model="form.mesaj"></textarea>
+      </label>
+      <span class="error" v-if="errors.mesaj">{{ errors.mesaj }}</span><br>
+
+      <button type="button" @click="validateSimple">Basit Doğrulama</button>
+      <button type="button" @click="validateAll">Detaylı Doğrulama</button>
+      <button type="submit">Gönder</button>
+      <button type="button" @click="resetForm">Temizle</button>
+    </form>
+  </div>
+    </div>
+
+  <script src="js/validation.js"></script>
   <canvas id="bg-canvas"></canvas>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

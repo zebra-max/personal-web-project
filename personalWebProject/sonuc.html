@@ -2,49 +2,93 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>İletişim Sonuç</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/sonuc.css">
+  <title>Sonuç</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="app" class="sonuc-container container mt-5">
-    <h2 class="text-center mb-4">Gönderilen İletişim Bilgileri</h2>
+  <div class="container-fluid"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav custom-align">
+        <a class="nav-link active" href="index.html">Hakkında <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="cv.html">Öz Geçmiş</a>
+        <a class="nav-link" href="sehrim.html">Şehrim</a>
+        <a class="nav-link" href="miras.html">Miras</a>
+        <a class="nav-link" href="ilgi.html">İlgi Alanlarım</a>
+        <a class="nav-link" href="login.html">Login</a>
+        <a class="nav-link" href="iletisim.html">İletişim</a>
+        <a class="nav-link" href="sonuc.html">Sonuç</a>
 
-    <div class="card p-4">
-      <p><strong>Ad Soyad:</strong> {{ form.adsoyad }}</p>
-      <p><strong>E-posta:</strong> {{ form.email }}</p>
-      <p><strong>Telefon:</strong> {{ form.telefon }}</p>
-      <p><strong>Cinsiyet:</strong> {{ form.cinsiyet }}</p>
-      <p><strong>Şehir:</strong> {{ form.sehir }}</p>
-      <p><strong>Mesaj:</strong> {{ form.mesaj }}</p>
+      </div>
     </div>
+  </nav>
+  </div> 
 
-    <div class="text-center mt-4">
-      <a href="iletisim.html" class="btn btn-secondary">Geri Dön</a>
+  <div id="app">
+    <div class="container login-container-custom">
+
+      <h1>Gönderilen Form Verileri</h1>
+    <p><strong>Ad Soyad:</strong> {{ form.adsoyad }}</p>
+    <p><strong>Email:</strong> {{ form.email }}</p>
+    <p><strong>Telefon:</strong> {{ form.telefon }}</p>
+    <p><strong>Cinsiyet:</strong> {{ form.cinsiyet }}</p>
+    <p><strong>Şehir:</strong> {{ form.sehir }}</p>
+    <p><strong>Mesaj:</strong> {{ form.mesaj }}</p>
+    <button @click="goBack">Geri Dön</button>
     </div>
+    
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <script>
     new Vue({
       el: '#app',
       data: {
-        form: {
-          adsoyad: '',
-          email: '',
-          telefon: '',
-          cinsiyet: '',
-          sehir: '',
-          mesaj: ''
-        }
+        form: {}
       },
       mounted() {
-        const savedData = localStorage.getItem("iletisimFormu");
-        if (savedData) {
-          this.form = JSON.parse(savedData);
+        const params = new URLSearchParams(window.location.search);
+        this.form = {
+          adsoyad: params.get('adsoyad'),
+          email: params.get('email'),
+          telefon: params.get('telefon'),
+          cinsiyet: params.get('cinsiyet'),
+          sehir: params.get('sehir'),
+          mesaj: params.get('mesaj')
+        };
+      },
+      methods: {
+        goBack() {
+          window.history.back();
         }
       }
     });
   </script>
+  <canvas id="bg-canvas"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+    crossorigin="anonymous"></script>
+
+
+  <script src="js/canva.js"></script>
 </body>
 </html>
