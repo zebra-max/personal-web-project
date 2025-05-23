@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
@@ -15,28 +16,44 @@
 
 </head>
 <body>
-<div class="container-fluid"></div>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav custom-align">
-        <a class="nav-link active" href="index.html">Hakkında <span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="cv.html">Öz Geçmiş</a>
-        <a class="nav-link" href="sehrim.html">Şehrim</a>
-        <a class="nav-link" href="miras.html">Miras</a>
-        <a class="nav-link" href="ilgi.html">İlgi Alanlarım</a>
-        <a class="nav-link" href="login.html">Login</a>
-        <a class="nav-link" href="iletisim.html">İletişim</a>
-        <a class="nav-link" href="sonuc.html">Sonuç</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand p-0 m-0" href="#">
+    <img src="img/civciv.img" width="50" height="50" class="d-inline-block align-top" alt="Logo">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-      </div>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav custom-align">
+      <a class="nav-link " href="index.html">
+        <i class="fas fa-user"></i> Hakkında
+      </a>
+      <a class="nav-link" href="cv.html">
+        <i class="fas fa-file-alt"></i> Öz Geçmiş
+      </a>
+      <a class="nav-link" href="sehrim.html">
+        <i class="fas fa-city"></i> Şehrim
+      </a>
+      <a class="nav-link" href="miras.html">
+        <i class="fas fa-landmark"></i> Miras
+      </a>
+      <a class="nav-link" href="ilgi.html">
+        <i class="fas fa-star"></i> İlgi Alanlarım
+      </a>
+      <a class="nav-link active" href="login.html">
+        <i class="fas fa-sign-in-alt"></i> Giriş
+      </a>
+      <a class="nav-link" href="iletisim.html">
+        <i class="fas fa-envelope"></i> İletişim
+      </a>
+      <a class="nav-link" href="sonuc.html">
+        <i class="fas fa-check-circle"></i> Sonuç
+      </a>
     </div>
-  </nav>
   </div>
+</nav>
 
   <!-- Login Form (Vue.js ile kontrol edilen) -->
   <div id="loginApp" class="container login-container-custom">
